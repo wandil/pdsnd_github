@@ -20,7 +20,7 @@ def get_filters():
     month = None
     day = None
     while True:
-        city = input("For which city you would like to view data, Chicago, New York City or Washington?: \n").rstrip().lower()
+        city = input("For which city would you like to view data for: Chicago, New York City or Washington? \n").rstrip().lower()
         if city not in CITY_DATA:
             print("\nPlease choose from the specified cities\n")
             continue
@@ -29,7 +29,7 @@ def get_filters():
 
         # TO DO: get user input for month (all, january, february, ... , june)
     while True:
-        time = input("Do you want to view data by month, day or all?: \n").rstrip().lower()               
+        time = input("Do you want to view data by month, day or all?: \n").rstrip().lower()
         if time == 'month':
             month = input("For which month would you like to view data, January, Feburary, March, April, May or June?: \n").rstrip().lower()
             break
@@ -40,16 +40,15 @@ def get_filters():
             break
 
         elif time == 'all':
-            month = input("For which month would you like to view data, January, Feburary, March, April, May or June?: \n").rstrip().lower()       
+            month = input("For which month would you like to view data, January, Feburary, March, April, May or June?: \n").rstrip().lower()
             day = input("For which day you would like to view data, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday?: \n").rstrip().lower()
-            
+
             break
-    
 
         else:
             input("It seems you have types an unspecified timeframe! Please try typing month, day, all or none?")
             break
-    
+
     print('-'*40)
     return city, month, day
 
@@ -82,7 +81,7 @@ def time_stats(df):
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
-    
+
     # TO DO: display the most common month
     common_month = df['month'].mode()[0]
 
@@ -182,7 +181,6 @@ def main():
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
-
 
 if __name__ == "__main__":
         main()
